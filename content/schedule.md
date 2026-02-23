@@ -46,8 +46,8 @@ Readings are from:
 | 7 July           | [Memory management, address translation](/lectures/lecture23-public.pdf)                                     | CSAPP 9.4–9.7        | |
 |                  | [Memory mapping, dynamic memory allocation](/lectures/lecture24-public.pdf)                                  | CSAPP 9.8, 9.9, 9.11 |
 | 9 July           | Exam 2 review session                                                                                        |
-|                  | Guest lecture: TBD                                                                                           |
-| 10 July          | [Unix I/O, files](/lectures/lecture25-public.pdf)                                                             | CSAPP 10.1–10.11     | Exam 2 due |
+|                  | Guest lecture: Lauren Meyer, data visualization                                                              |
+| 10 July          | [Unix I/O, files](/lectures/lecture25-public.pdf)                                                            | CSAPP 10.1–10.11     | Exam 2 due |
 |                  | [Networks, Internet Protocol](/lectures/lecture26-public.pdf)                                                | CSAPP 11.1–11.3      |
 | <hr/> | <hr/> | <hr/> | <hr/> |
 | 14 July          | [Sockets, Application Protocols,](/lectures/lecture27-public.pdf) [sockets.zip](/lectures/sockets.zip)       | CSAPP 11.4           | A4 due     |
@@ -59,7 +59,7 @@ Readings are from:
 | <hr/> | <hr/> | <hr/> | <hr/> |
 | 21 July          | [Concurrency with I/O multiplexing,](/lectures/lecture33-public.pdf) [iomux.zip](/lectures/iomux.zip)        | CSAPP 12.2           |
 | 23 July          | Exam 3 review session                                                                                        |                      | A5 MS2 due |
-|                  | Guest lecture: TBD                                                                                           |
+|                  | Guest lecture: Ian Cook, cybersecurity research                                                              |
 | 24 July          | Catch-up day                                                                                                 |                      | Exam 3 due |
 | <hr/> | <hr/> | <hr/> | <hr/> |
 | TBD        | Closing Social. Pizza and soft drinks provided. | | |
