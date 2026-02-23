@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/summer2026/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=summer2026/livereload" data-no-instant defer></script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>
+    
+      Github ssh authentication &middot; EN.601.229: Computer System Fundamentals
+    
+  </title>
+
+  
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="http://localhost:1313/summer2026/sass/style.css">
+</head><body>
+
+    <div class="container content">
+      <header class="masthead">
+        <a href="https://www.jhu.edu">
+          <picture class="jhu-shield">
+            <source srcset="../../img/university.shield.white.svg" media="(prefers-color-scheme:dark)"/>
+            <img class="jhu-shield" src="../../img/university.shield.black.svg"/>
+          </picture>
+        </a>
+        <h1 class="masthead-title">
+          EN.601.229: Computer System Fundamentals
+        </h1>
+        <ul class="masthead-nav">
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../syllabus">Syllabus</a></li>
+          <li><a href="../../schedule">Schedule</a></li>
+          <li><a href="../../assignments">Assignments</a></li>
+          <li><a href="../../resources">Resources</a></li>
+        </ul>
+      </header>
+
+      <main>
+  <article class="page">
+    <h1 class="page-title">Github ssh authentication</h1>
+    <p>This document explains how you can create an SSH public/private keypair
+for your ugrad account and configure your private repository to have Git
+communicate with the remote server using SSH. Doing this will avoid the
+need for you to type your Github username and password every time you do
+a remote operation such as <code>git pull</code> or <code>git push</code>.</p>
+<p>We recommend that you read and follow these instructions carefully. If
+you follow them exactly, they should work.</p>
+<p>Please note that configuring your Github account and private repository
+to use SSH is <strong>completely optional</strong>. If you would prefer
+to use HTTPS and use your Github username and password to authenticate,
+that is perfectly fine.</p>
+<h2 id="creating-an-ssh-publicprivate-keypair">Creating an ssh public/private keypair</h2>
+<p>The first step you will need to do is to log into your ugrad account
+and run the following command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">2048</span>
+</span></span></code></pre></div><p>When prompted for the file and passphrase, just hit &ldquo;Enter&rdquo; to accept the default option.
+The output you should see in your terminal should look something like this:</p>
+<pre tabindex="0"><code>[daveho@ugradx ~]$ ssh-keygen -t rsa -b 2048
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/daveho/.ssh/id_rsa): 
+Created directory &#39;/home/daveho/.ssh&#39;.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/daveho/.ssh/id_rsa
+Your public key has been saved in /home/daveho/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:STViaCEiEfnG/GXLBNJtN89FlIo+R6GDEvq0SQs+hx4 daveho@ugradx
+The key&#39;s randomart image is:
++---[RSA 2048]----+
+|++.....oo ooo.   |
+|....+.=.oo..o    |
+| + o = o.* +     |
+|  B + =.+.=      |
+| o B X oSo       |
+|  E B o o .      |
+| . +     o       |
+|  .              |
+|                 |
++----[SHA256]-----+
+</code></pre><p>The <code>ssh-keygen</code> command will create a directory in your Linux home directory called
+<code>.ssh</code>.  Make sure that this directory is only accessible by you by running the
+command</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls -ld ~/.ssh
+</span></span></code></pre></div><p>You should see output something like the following:</p>
+<pre tabindex="0"><code>[daveho@ugradx ~]$ ls -ld ~/.ssh
+drwx------. 2 daveho users 4 Jan 31 16:55 /home/daveho/.ssh
+</code></pre><p>The permissions <code>rwx------</code> mean that only your account can read, write, or
+execute (search) the contents of the <code>.ssh</code> directory, which is what you
+want to see.  If you see different permissions, you can fix them by running the command</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chmod <span class="m">0700</span> ~/.ssh
+</span></span></code></pre></div><h2 id="copy-your-public-ssh-key-to-the-clipboard">Copy your public ssh key to the clipboard</h2>
+<p>Print the contents of your ssh public key by running the command</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/.ssh/id_rsa.pub
+</span></span></code></pre></div><p>You should see something like the following (it will probably appear as multiple
+lines of output in the terminal, but it&rsquo;s really one long line of text):</p>
+<pre tabindex="0"><code>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqX2atYK7RtuODlxYZ52TpD1abeA7UxUXk4W39ZKKy3n0bguLOzNOveJNiF7ayGtbirGNBVC/f8snNGpFa8EVjW1Wx+yAVBU0sEAz4h1cYarGUNBhr+SgwGbpFHRDjptkkFpfUu6YoAkY6wv4u4s3396EHR0IttUdOqke9OIKt1nQwr1y30qpyXwLj8nd9s4frmFI4Zo/+Gyux1kYX2kg5C8Iao54HDqTRwSbfww/1KANfF3mjfLI9CI/B5y6C4e+JRa4qoN0dAVJxEeyjo3DztdDm18G1vy2Mo4Od7TvjvA2FirDFnonMknd4QoH0tlwtxk4xzFXjZSW2xEEPWxu9 daveho@ugradx
+</code></pre><p>Copy the exact text of the public key <strong>that you see in your terminal</strong> to the clipboard.
+In Putty, the text you select is automatically copied to the clipboard.  In the MacOS Terminal,
+Command-C copies selected text to the clipboard.  In most Linux terminal programs,
+Control-Shift-C copies selected text to the clipboard.
+Do <strong>not</strong> copy the example key shown above, it will definitely not work.</p>
+<h2 id="add-the-public-key-to-your-github-account-settings">Add the public key to your Github account settings</h2>
+<p>In a web browser, go to <a href="https://github.com">github.com</a> and log in.  Click the menu icon in the
+upper right-hand corner of the window, and choose &ldquo;Settings&rdquo;.  Click on &ldquo;SSH and GPG keys&rdquo;.
+Click &ldquo;New SSH key&rdquo;.  You should see something like the following:</p>
+<span class='content-image'>
+![Github settings add ssh key page](img/github-new-ssh-key-1.png)
+</span>
+<p>Paste the copied ssh public key to the &ldquo;Key&rdquo; text box, and enter a name for the
+key in the &ldquo;Title&rdquo; text box.  This might look something like this:</p>
+<span class='content-image'>
+![Github settings add ssh key page](img/github-new-ssh-key-2.png)
+</span>
+<p>Now click &ldquo;Add SSH key&rdquo; to add the SSH key to your account settings.  You will be
+prompted to enter your Github account password to confirm the change.</p>
+<h2 id="using-the-ssh-repository-url-for-your-private-github-repository">Using the SSH repository URL for your private Github repository</h2>
+<p>Go to the Github web page for whichever Github private repository
+you would like to access, and click on &ldquo;Code&rdquo;. You should
+see something like the following:</p>
+<span class='content-image'>
+![Github private repo page](img/private-repo-page-1.png)
+</span>
+<p>Click &ldquo;SSH&rdquo; so that you see the SSH repository URL. You should see something like this:</p>
+<span class='content-image'>
+![Github private repo page](img/private-repo-page-2.png)
+</span>
+<p>Copy the private Github URL to the clipboard.</p>
+<p>Now you should be able to clone your private repository. For example,
+if the private repository URL is <code>git@github.com:username/myrepo.git</code>,
+you would run the command</p>
+<pre tabindex="0"><code>git clone git@github.com:username/myrepo.git
+</code></pre>
+  </article>
+
+      </main><footer class="footer">
+  <small>
+    
+    <p>&copy; Johns Hopkins University. All rights reserved.</p><p class="metadata">Site last updated 22 Feb 2026.</p>
+    
+  </small>
+</footer>
+</div>
+  </body>
+</html>

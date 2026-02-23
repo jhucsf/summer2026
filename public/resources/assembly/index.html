@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/summer2026/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=summer2026/livereload" data-no-instant defer></script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>
+    
+      Assembly language exercise &middot; EN.601.229: Computer System Fundamentals
+    
+  </title>
+
+  
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="http://localhost:1313/summer2026/sass/style.css">
+</head><body>
+
+    <div class="container content">
+      <header class="masthead">
+        <a href="https://www.jhu.edu">
+          <picture class="jhu-shield">
+            <source srcset="../../img/university.shield.white.svg" media="(prefers-color-scheme:dark)"/>
+            <img class="jhu-shield" src="../../img/university.shield.black.svg"/>
+          </picture>
+        </a>
+        <h1 class="masthead-title">
+          EN.601.229: Computer System Fundamentals
+        </h1>
+        <ul class="masthead-nav">
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../syllabus">Syllabus</a></li>
+          <li><a href="../../schedule">Schedule</a></li>
+          <li><a href="../../assignments">Assignments</a></li>
+          <li><a href="../../resources">Resources</a></li>
+        </ul>
+      </header>
+
+      <main>
+  <article class="page">
+    <h1 class="page-title">Assembly language exercise</h1>
+    <h1 id="task">Task</h1>
+<p>Your task in this exercise is to write an x86-64 assembly language program
+which reads 10 integer values from the user, stores them in an array,
+finds the maximum value, and then prints the maximum value.</p>
+<p>Note that it&rsquo;s not sufficient to simply keep track of the maximum value
+as values are read: the program should first store the 10 input values
+in an array, then find the maximum from the values in the array.</p>
+<p>Here is an example session showing assembling and running the program
+(user input in <strong>bold</strong>):</p>
+<pre tabindex="0"><code>$ make arrayMax
+gcc -c -g -no-pie -o arrayMax.o arrayMax.S
+gcc -no-pie -o arrayMax arrayMax.o
+$ ./arrayMax
+Enter 10 integer values: 3 2 61 35 74 73 70 7 94 53
+Max is 94
+</code></pre><p>If you finish this task and are looking for a more challenging task,
+you can try the <a href="../../resources/assembly2">second assembly language exercise</a>.</p>
+<h1 id="solution">Solution</h1>
+<p>Here is a solution: <a href="asmExerciseSoln.zip">asmExerciseSoln.zip</a></p>
+<h1 id="getting-started">Getting started</h1>
+<p>Download the following zipfile and unzip it: <a href="asmExercise.zip">asmExercise.zip</a></p>
+<p>Make your changes to <code>arrayMax.S</code>.  You can assemble the program using the
+command <code>make arrayMax</code>.  Run it using the command <code>./arrayMax</code>.</p>
+<p>An example assembly language program <code>hello.S</code> is provided.  You can assemble
+it using the command <code>make hello</code> and run it using the command <code>./hello</code>.</p>
+<h1 id="tips-and-suggestions">Tips and suggestions</h1>
+<p><em>Allocating storage</em>. The easiest way to allocate storage for the array is to make it a global variable in the <code>.bss</code> segment.  For example:</p>
+<pre tabindex="0"><code>	.section .bss
+
+	.align 8
+dataValues: .space (10 * 8)
+</code></pre><p>would reserve space for 10 8-byte (64-bit) values.  Storage allocated in the <code>.bss</code> segment is guaranteed to be filled with zeroes.</p>
+<p>If you want a challenge, allocate the arrays on the stack.  The frame pointer register (<code>%rbp</code>) can help you keep track of stack-allocated storage: see <a href="../../lectures/lecture08-public.pdf">Lecture 8</a>.</p>
+<p><em>Use callee-saved registers for variables.</em> You can use callee-saved registers as variables in your computation.  Callee-saved registers have the significant advantage (over caller-saved registers) of being preserved accross procedure calls.  Make sure that you push their original values onto the stack before modifying them, and restore their original values from the stack when they are no longer needed.  For example, let&rsquo;s say that your entire computation is implemented in <code>main</code>, and you intend to use <code>%r12</code> and <code>%r13</code> as variables.  You could put the following code at the beginning of <code>main</code>:</p>
+<pre tabindex="0"><code>pushq %r12
+pushq %r13
+</code></pre><p>Then, put the following code near the end of <code>main</code> (just before the <code>ret</code> instruction at the very end):</p>
+<pre tabindex="0"><code>popq %r13
+popq %r12
+</code></pre><p>Note that values must be popped from the the stack in the reverse of the order in which they were pushed. (It&rsquo;s a stack!)</p>
+<p>Don&rsquo;t forget that the stack pointer (<code>%rsp</code>) must be an exact multiple of 16 at the point of any <code>call</code> instruction.  Each <code>push</code> of a 64 bit value will decrease <code>%rsp</code> by 8.  Depending on how many <code>pushq</code>/<code>popq</code> instructions you have, you may need to adjust the stack pointer using <code>subq $8, %rsp</code> and <code>addq $8, %rsp</code> to ensure correct stack alignment.</p>
+<p><em>Accessing array elements</em>. One challenge in this exercise is accessing array elements.  Assuming you use 64-bit integers, each array element will occupy 8 bytes of storage.  The indexed/scaled addressing mode is very convenient for directly accessing an array element based on its displacement from the array&rsquo;s base address.  Let&rsquo;s say that <code>%r12</code> contains the base address of the array (i.e., it points to the first element of the array), and that <code>%r13</code> contains the index of an element.  You can store the address of the chosen element in <code>%rsi</code> with the instruction</p>
+<pre tabindex="0"><code>leaq (%r12,%r13,8), %rsi
+</code></pre><p>You can load the value of the chosen element into <code>%rsi</code> with the instruction</p>
+<pre tabindex="0"><code>movq (%r12,%r13,8), %rsi
+</code></pre><p>Note that when specifying the address of a global variable or array, prefix it with <code>$</code> (because you&rsquo;re referring to the constant address of the variable, not referring to the data stored in the variable.)  For example, to load the base address of the array called <code>dataValues</code> into the <code>%r12</code> register, you would use the following instruction:</p>
+<pre tabindex="0"><code>movq $dataValues, %r12
+</code></pre><p><em>Use gdb</em>. Use <code>gdb</code> to trace through the execution of your program.  The <a href="../../resources">Resources</a> page has links to some useful information about using <code>gdb</code> to debug assembly language.  <a href="../../lectures/lecture08-public.pdf">Lecture 8</a> also has some useful <code>gdb</code> tips on the last two pages.</p>
+
+  </article>
+
+      </main><footer class="footer">
+  <small>
+    
+    <p>&copy; Johns Hopkins University. All rights reserved.</p><p class="metadata">Site last updated 22 Feb 2026.</p>
+    
+  </small>
+</footer>
+</div>
+  </body>
+</html>

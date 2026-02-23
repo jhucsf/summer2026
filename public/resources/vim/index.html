@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/summer2026/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=summer2026/livereload" data-no-instant defer></script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>
+    
+      Vim Setup &middot; EN.601.229: Computer System Fundamentals
+    
+  </title>
+
+  
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="http://localhost:1313/summer2026/sass/style.css">
+</head><body>
+
+    <div class="container content">
+      <header class="masthead">
+        <a href="https://www.jhu.edu">
+          <picture class="jhu-shield">
+            <source srcset="../../img/university.shield.white.svg" media="(prefers-color-scheme:dark)"/>
+            <img class="jhu-shield" src="../../img/university.shield.black.svg"/>
+          </picture>
+        </a>
+        <h1 class="masthead-title">
+          EN.601.229: Computer System Fundamentals
+        </h1>
+        <ul class="masthead-nav">
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../syllabus">Syllabus</a></li>
+          <li><a href="../../schedule">Schedule</a></li>
+          <li><a href="../../assignments">Assignments</a></li>
+          <li><a href="../../resources">Resources</a></li>
+        </ul>
+      </header>
+
+      <main>
+  <article class="page">
+    <h1 class="page-title">Vim Setup</h1>
+    <p>A very easy setup for <a href="https://neovim.io/">Neovim</a>.
+Note: This setup will come with LSPs for c, cpp, and lua. For more, you will need to configure on your own.</p>
+<h2 id="why">Why?</h2>
+<ol>
+<li>Speed: You will edit text fast.</li>
+<li>Understanding: You will learn how text editors (and IDEs) work.</li>
+<li>Efficiency: Startup time will be measured in milliseconds.</li>
+<li>Universal: Almost all machines (you come across) will have vim installed.</li>
+</ol>
+<h2 id="installing-neovim">Installing Neovim</h2>
+<p>If you are working on ugrad machines, you can skip this step as Neovim is already installed.</p>
+<p>NvChad requires version &gt;= 0.9.0<br>
+Follow instruction <a href="https://github.com/neovim/neovim/wiki/Installing-Neovim">here</a></p>
+<h2 id="setting-up-nvchad">Setting up <a href="https://nvchad.com/">NvChad</a></h2>
+<ol>
+<li>Your terminal is required to use a <a href="https://www.nerdfonts.com/">Nerd Font</a>. If you can&rsquo;t make up your mind, use <code>JetbrainsMono Nerd Font</code></li>
+<li>run <code>git clone https://github.com/ishme-al/csf-vim ~/.config/nvim --depth 1 &amp;&amp; nvim</code></li>
+</ol>
+<h2 id="post-install-optional">Post-Install (optional)</h2>
+<ol>
+<li>
+<p>Install <a href="https://github.com/BurntSushi/ripgrep">ripgrep</a> for additional functionality</p>
+</li>
+<li>
+<p>in your <code>~/.bashrc</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">vim</span><span class="o">=</span><span class="s1">&#39;nvim&#39;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>If you prefer spaces instead of tabs, in <code>~/.config/nvim/lua/custom/init.lua</code> delete this line</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="nx">vim</span>.<span class="nx">opt</span>.<span class="nx">expandtab</span><span class="p">=</span><span class="nx">false</span>
+</span></span></code></pre></div></li>
+<li>
+<p>If you prefer 2 spaces for a tab, delete the file.</p>
+</li>
+</ol>
+<h2 id="learning-neovim">Learning Neovim</h2>
+<ol>
+<li>vim motions: <code>vimtutor</code> in ugrad will bring up a tutorial</li>
+<li><code>&lt;space&gt; + ch</code> in Neovim will bring up a cheatsheet (<code>&lt;leader&gt;</code> is by default mapped to the space key)</li>
+</ol>
+<h2 id="issues">Issues?</h2>
+<p>Any set of these instructions may break. If you do face any issues (or just want to talk about vim) let me know at <a href="mailto:imeal1@jh.edu">imeal1@jh.edu</a></p>
+<ul>
+<li>Colors may be broken. <code>:checkhealth</code> in Neovim to see if there are any issues. Any decent terminal emulator should support proper colors (iTerm2, Windows Terminal)</li>
+<li>Clipboard may not work</li>
+</ul>
+<h2 id="future-steps-for-you">Future Steps (for you)</h2>
+<ul>
+<li>Learn Lua (used to configure Neovim)</li>
+<li>Learn how to configure NvChad</li>
+<li>Ditch NvChad! Configure everything yourself.</li>
+<li>Learn Tmux</li>
+<li>Learn Emacs?</li>
+</ul>
+
+  </article>
+
+      </main><footer class="footer">
+  <small>
+    
+    <p>&copy; Johns Hopkins University. All rights reserved.</p><p class="metadata">Site last updated 22 Feb 2026.</p>
+    
+  </small>
+</footer>
+</div>
+  </body>
+</html>

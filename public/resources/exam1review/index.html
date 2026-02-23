@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/summer2026/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=summer2026/livereload" data-no-instant defer></script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>
+    
+      Exam 1 Practice Questions &middot; EN.601.229: Computer System Fundamentals
+    
+  </title>
+
+  
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="http://localhost:1313/summer2026/sass/style.css">
+</head><body>
+
+    <div class="container content">
+      <header class="masthead">
+        <a href="https://www.jhu.edu">
+          <picture class="jhu-shield">
+            <source srcset="../../img/university.shield.white.svg" media="(prefers-color-scheme:dark)"/>
+            <img class="jhu-shield" src="../../img/university.shield.black.svg"/>
+          </picture>
+        </a>
+        <h1 class="masthead-title">
+          EN.601.229: Computer System Fundamentals
+        </h1>
+        <ul class="masthead-nav">
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../syllabus">Syllabus</a></li>
+          <li><a href="../../schedule">Schedule</a></li>
+          <li><a href="../../assignments">Assignments</a></li>
+          <li><a href="../../resources">Resources</a></li>
+        </ul>
+      </header>
+
+      <main>
+  <article class="page">
+    <h1 class="page-title">Exam 1 Practice Questions</h1>
+    <p>These questions are designed to aid your review of the material covered by the first exam. They are not representative of the difficulty, type, or length of the questions on the exam.</p>
+<p>In all questions, assume signed integers use two&rsquo;s complement representation.</p>
+<h2 id="q1-number-representation">Q1. Number Representation</h2>
+<ol type="a">
+  <li>
+<p>Write the representation of the number 43 in base 16, base 10, base 8, base 6, and base 2.</p>
+  </li>
+  <li>
+<p>On an 8-bit computer, what is the sum of unsigned <code>208 + 53</code>?, and what is the difference of signed <code>103 - 24</code>?</p>
+  </li>
+  <li>
+<p>Write what <code>-5</code> would be on a 4-bit and an 8-bit system.</p>
+  </li>
+  <li>
+<p>Show how to calculate <code>1.250 + 3.375</code> and <code>1.250 * 3.375</code> using floating point.</p>
+  </li>
+  <li>
+<p>How are 32 bits broken down in IEEE-754?</p>
+  </li>
+</ol>
+<h2 id="q2-bitwise-operators">Q2. Bitwise Operators</h2>
+<ol type="a">
+  <li>
+<p>Write the results of arithmetic and logical executions of <code>-113 &raquo; 1</code>, where <code>-113</code> is an 8 bit value.</p>
+  </li>
+  <li>
+<p>What is the fastest way to compute <code>16 * 13</code>? (Hint: don&rsquo;t use multiplication.)</p>
+  </li>
+  <li>
+<p>Determine <code>43 | 13</code>, <code>43 &amp; 13</code>, <code>43 ^ 13</code>, and <code>~43</code> (assume operands are unsigned 8 bit.)</p>
+  </li>
+</ol>
+<h2 id="q3-basic-assembly-questions">Q3. Basic Assembly Questions</h2>
+<ol type="a">
+  <li>
+<p>What are the steps that happen after you run gcc on a .c program? What does the output after each step look like, and what are their file extensions?</p>
+  </li>
+  <li>
+<p>How, why, and when do you align the stack pointer?</p>
+  </li>
+  <li>
+<p>What are caller and callee saved registers?</p>
+  </li>
+  <li>
+<p>Write a local loop, and the line which calls it in <code>main</code>, that sums all the values from 0-9, given</p>
+<p><code>#define N 9</code></p>
+  </li>
+  <li>
+<p>In AT&amp;T syntax, what is the order of arguments for these instructions, and where are the results stored?</p>
+  <ul>
+  <li><code>addq %r9, %r10</code></li>
+  <li><code>movl $FFFF0000, %esi</code></li>
+  <li><code>cmpl %eax, %eax</code>
+  </li>
+  </ul>
+  </li>
+</ol>
+<h2 id="q4-x86-64-assembly-programming">Q4. x86-64 Assembly Programming</h2>
+<p>Write an x86-64 assembly language function called <code>swapInts</code> which swaps the values of two <code>int</code> variables. The C function declaration for this function would be</p>
+<p><code>void swapInts(int *a, int *b);</code></p>
+<p>Hints:</p>
+<ul>
+<li>Think about which registers the parameters will be passed in</li>
+<li>Think about what register(s) would be appropriate to use for temporary value(s)</li>
+<li>Consider that <code>int</code> variables are 4 bytes (32 bits), and use an appropriate operand size suffix.</li>
+</ul>
+<p><strong>Important:</strong> Your function should follow proper x86-64 Linux register use conventions. Be sure to include the label defining the name of the function.</p>
+<h2 id="q5-x86-64-assembly-programming">Q5. x86-64 Assembly Programming</h2>
+<p>Consider the following C function prototype:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">str_tolower</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">);</span>
+</span></span></code></pre></div><p>The <code>str_tolower</code> function modifies a C character string so that each
+upper case letter is converted to lower case.</p>
+<p>Show an x86-64 assembly language implementation of this function.
+Note that the ASCII codes for upper case letters are in the range
+65–90, and the ASCII codes for lower case letters are the range
+97–122.  Characters that aren&rsquo;t letters should not be modified.</p>
+
+  </article>
+
+      </main><footer class="footer">
+  <small>
+    
+    <p>&copy; Johns Hopkins University. All rights reserved.</p><p class="metadata">Site last updated 22 Feb 2026.</p>
+    
+  </small>
+</footer>
+</div>
+  </body>
+</html>
