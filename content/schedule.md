@@ -9,59 +9,59 @@ Readings are from:
 
 *Important:* do the reading before you come to class.
 
-| Date             | Topic                                                                                                        | Reading              | Assignment |
-|:-----------------|:---------------------------------------------------------------------------------------------------|:---------------------|:-----------|
-| 2 June           | [Course overview, binary data representation review](/lectures/lecture01-public.pdf)                         | CSAPP 1.1-1.9        |
-|                  | [Data representation, addresses](/lectures/lecture02-public.pdf)                                             | CSAPP 2.1            |
-| 4 June           | [Integer representation](/lectures/lecture03-public.pdf)                                                     | CSAPP 2.2            | A1 MS1 due |
-|                  | [Integer arithmetic](/lectures/lecture04-public.pdf)                                                         | CSAPP 2.3            |
-| 5 June           | [Floating point](/lectures/lecture05-public.pdf)                                                             | CSAPP 2.4            |
-|                  | [Machine-level program representation](/lectures/lecture06-public.pdf)                                       | CSAPP 3.1-3.4        |
-| <hr/> | <hr/> | <hr/> | <hr/> |
-| 9 June          | [ALU operations, arithmetic,](/lectures/lecture07-public.pdf) [alu.zip](/lectures/alu.zip)                    | CSAPP 3.5            | A1 MS2 due |
-|                  | [Control flow,](/lectures/lecture08-public.pdf) [control.zip](/lectures/control.zip)                         | CSAPP 3.6            |
-| 11 June          | [Procedures, stacks,](/lectures/lecture09-public.pdf) [control2.zip](/lectures/control2.zip)                 | CSAPP 3.7            | A2 MS1 due |
-|                  | [Arrays and structs,](/lectures/lecture10-public.pdf) [arraystruct.zip](/lectures/arraystruct.zip)           | CSAPP 3.7            |
-| 12 June          | [Assembly language in class exercise](/lectures/assembly-public.pdf)                                         |
-|                  | [Code and data interactions, buffer overflows,](/lectures/lecture11-public.pdf) [buf.zip](/lectures/buf.zip) | CSAPP 3.10           |
-| <hr/> | <hr/> | <hr/> | <hr/> |
-| 16 June          | [Program optimization (basic techniques)](/lectures/lecture12-public.pdf)                                    | CSAPP 5.1–5.8        | A2 MS2 due |
-|                  | Exam 1 review session                                                                                        |
-| 18 June          | Guest lecture: TBD | | |
-| 19 June          | *Juneteenth -- university holiday -- no class* | | Exam 1 due |
-| <hr/> | <hr/> | <hr/> | <hr/> |
-| 23 June          | [Pipelines](/lectures/lecture13-public.pdf)                                                                  | P&amp;H 4.5–4.7      | |
-|                  | [Program optimization (ILP, memory, profiling)](/lectures/lecture14-public.pdf)                              | CSAPP 5.9–5.14       | |
-| 25 June          | [Memory hierarchy](/lectures/lecture15-public.pdf)                                                           | CSAPP 6.1–6.3        | A2 MS3 due |
-|                  | [Cache policies](/lectures/lecture16-public.pdf)                                                             | CSAPP 6.4            |
-| 26 June          | [Caches and program execution](/lectures/lecture17-public.pdf)                                               | CSAPP 6.5            | A3 MS1 due |
-|                  | [Linking basics, symbols, relocations, executables, loading](/lectures/lecture18-public.pdf)                 | CSAPP 7.1–7.9        |
-| <hr/> | <hr/> | <hr/> | <hr/> |
-| 30 June        | [Dynamic linking, shared libraries, PIC,](/lectures/lecture19-public.pdf) [dynload.zip](/lectures/dynload.zip) | CSAPP 7.10–7.15      | A3 MS2 due |
-|                  | [Exceptions, Processes](/lectures/lecture20-public.pdf)                                                      | CSAPP 8.1–8.4, 8.7   |
-| 2 July           | [Signals,](/lectures/lecture21-public.pdf) [signals.zip](/lectures/signals.zip)                             | CSAPP 8.5–8.6        |
-|                  | [Virtual memory](/lectures/lecture22-public.pdf)                                                             | CSAPP 9.1–9.3        |
-| *4 July*        | *Independence Day -- university holiday -- no class*                                                                               | | A3 MS3 due |
-| <hr/> | <hr/> | <hr/> | <hr/> |
-| 7 July           | [Memory management, address translation](/lectures/lecture23-public.pdf)                                     | CSAPP 9.4–9.7        | |
-|                  | [Memory mapping, dynamic memory allocation](/lectures/lecture24-public.pdf)                                  | CSAPP 9.8, 9.9, 9.11 |
-| 9 July           | Exam 2 review session                                                                                        |
-|                  | Guest lecture: Lauren Meyer, data visualization                                                              |
-| 10 July          | [Unix I/O, files](/lectures/lecture25-public.pdf)                                                            | CSAPP 10.1–10.11     | Exam 2 due |
-|                  | [Networks, Internet Protocol](/lectures/lecture26-public.pdf)                                                | CSAPP 11.1–11.3      |
-| <hr/> | <hr/> | <hr/> | <hr/> |
-| 14 July          | [Sockets, Application Protocols,](/lectures/lecture27-public.pdf) [sockets.zip](/lectures/sockets.zip)       | CSAPP 11.4           | A4 due     |
-|                  | [Network applications, HTTP,](/lectures/lecture28-public.pdf) [webclient.zip,](/lectures/webclient.zip) [webserver.zip](/lectures/webserver.zip)     | CSAPP 11.4–11.6      |
-| 16 July          | [Concurrency with pthreads,](/lectures/lecture29-public.pdf) [mt_webserver.zip](/lectures/mt_webserver.zip)  | CSAPP 12.3           |
-|                  | [Thread synchronization,](/lectures/lecture30-public.pdf) [synch.zip](/lectures/synch.zip)                   | CSAPP 12.4–12.5      |
-| 17 July          | [Parallelism, concurrency issues,](/lectures/lecture31-public.pdf) [synch2.zip](/lectures/synch2.zip)        | CSAPP 12.6–12.7      | A5 MS1 due |
-|                  | [Concurrency with processes,](/lectures/lecture32-public.pdf) [mp_webserver.zip](/lectures/mp_webserver.zip) | CSAPP 12.1           |
-| <hr/> | <hr/> | <hr/> | <hr/> |
-| 21 July          | [Concurrency with I/O multiplexing,](/lectures/lecture33-public.pdf) [iomux.zip](/lectures/iomux.zip)        | CSAPP 12.2           |
-| 23 July          | Exam 3 review session                                                                                        |                      | A5 MS2 due |
-|                  | Guest lecture: Ian Cook, cybersecurity research                                                              |
-| 24 July          | Catch-up day                                                                                                 |                      | Exam 3 due |
-| <hr/> | <hr/> | <hr/> | <hr/> |
-| TBD        | Closing Social. Pizza and soft drinks provided. | | |
+| Date             | Topic                                                                                                                                            | Reading              | Assignment |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------|
+| 2 June           | [Course overview, binary data representation review](/lectures/lecture01-public.pdf)                                                             | CSAPP 1.1-1.9        |            |
+|                  | [Data representation, addresses](/lectures/lecture02-public.pdf)                                                                                 | CSAPP 2.1            |            |
+| 4 June           | [Integer representation](/lectures/lecture03-public.pdf)                                                                                         | CSAPP 2.2            | A1 MS1 due |
+|                  | [Integer arithmetic](/lectures/lecture04-public.pdf)                                                                                             | CSAPP 2.3            |            |
+| 5 June           | [Floating point](/lectures/lecture05-public.pdf)                                                                                                 | CSAPP 2.4            |            |
+|                  | [Machine-level program representation](/lectures/lecture06-public.pdf)                                                                           | CSAPP 3.1-3.4        |            |
+| <hr/>            | <hr/>                                                                                                                                            | <hr/>                | <hr/>      |
+| 9 June           | [ALU operations, arithmetic,](/lectures/lecture07-public.pdf) [alu.zip](/lectures/alu.zip)                                                       | CSAPP 3.5            | A1 MS2 due |
+|                  | [Control flow,](/lectures/lecture08-public.pdf) [control.zip](/lectures/control.zip)                                                             | CSAPP 3.6            |            |
+| 11 June          | [Procedures, stacks,](/lectures/lecture09-public.pdf) [control2.zip](/lectures/control2.zip)                                                     | CSAPP 3.7            | A2 MS1 due |
+|                  | [Arrays and structs,](/lectures/lecture10-public.pdf) [arraystruct.zip](/lectures/arraystruct.zip)                                               | CSAPP 3.7            |            |
+| 12 June          | [Assembly language in class exercise](/lectures/assembly-public.pdf)                                                                             |                      |            |
+|                  | [Code and data interactions, buffer overflows,](/lectures/lecture11-public.pdf) [buf.zip](/lectures/buf.zip)                                     | CSAPP 3.10           |            |
+| <hr/>            | <hr/>                                                                                                                                            | <hr/>                | <hr/>      |
+| 16 June          | [Program optimization (basic techniques)](/lectures/lecture12-public.pdf)                                                                        | CSAPP 5.1-5.8        | A2 MS2 due |
+|                  | Exam 1 review session                                                                                                                            |                      |            |
+| 18 June          | Guest lecture: Jacob Gutsin, quantum computing                                                                                                   |                      |            |
+| 19 June          | *Juneteenth -- university holiday -- no class*                                                                                                   |                      | Exam 1 due |
+| <hr/>            | <hr/>                                                                                                                                            | <hr/>                | <hr/>      |
+| 23 June          | [Pipelines](/lectures/lecture13-public.pdf)                                                                                                      | P&amp;H 4.5-4.7      |            |
+|                  | [Program optimization (ILP, memory, profiling)](/lectures/lecture14-public.pdf)                                                                  | CSAPP 5.9-5.14       |            |
+| 25 June          | [Memory hierarchy](/lectures/lecture15-public.pdf)                                                                                               | CSAPP 6.1-6.3        | A2 MS3 due |
+|                  | [Cache policies](/lectures/lecture16-public.pdf)                                                                                                 | CSAPP 6.4            |            |
+| 26 June          | [Caches and program execution](/lectures/lecture17-public.pdf)                                                                                   | CSAPP 6.5            | A3 MS1 due |
+|                  | [Linking basics, symbols, relocations, executables, loading](/lectures/lecture18-public.pdf)                                                     | CSAPP 7.1-7.9        |            |
+| <hr/>            | <hr/>                                                                                                                                            | <hr/>                | <hr/>      |
+| 30 June          | [Dynamic linking, shared libraries, PIC,](/lectures/lecture19-public.pdf) [dynload.zip](/lectures/dynload.zip)                                   | CSAPP 7.10-7.15      | A3 MS2 due |
+|                  | [Exceptions, Processes](/lectures/lecture20-public.pdf)                                                                                          | CSAPP 8.1-8.4, 8.7   |            |
+| 2 July           | [Signals,](/lectures/lecture21-public.pdf) [signals.zip](/lectures/signals.zip)                                                                  | CSAPP 8.5-8.6        |            |
+|                  | [Virtual memory](/lectures/lecture22-public.pdf)                                                                                                 | CSAPP 9.1-9.3        |            |
+| *4 July*         | *Independence Day -- university holiday -- no class*                                                                                             |                      | A3 MS3 due |
+| <hr/>            | <hr/>                                                                                                                                            | <hr/>                | <hr/>      |
+| 7 July           | [Memory management, address translation](/lectures/lecture23-public.pdf)                                                                         | CSAPP 9.4-9.7        |            |
+|                  | [Memory mapping, dynamic memory allocation](/lectures/lecture24-public.pdf)                                                                      | CSAPP 9.8, 9.9, 9.11 |            |
+| 9 July           | Exam 2 review session                                                                                                                            |                      |            |
+|                  | Guest lecture: Lauren Meyer, data visualization                                                                                                  |                      |            |
+| 10 July          | [Unix I/O, files](/lectures/lecture25-public.pdf)                                                                                                | CSAPP 10.1-10.11     | Exam 2 due |
+|                  | [Networks, Internet Protocol](/lectures/lecture26-public.pdf)                                                                                    | CSAPP 11.1-11.3      |            |
+| <hr/>            | <hr/>                                                                                                                                            | <hr/>                | <hr/>      |
+| 14 July          | [Sockets, Application Protocols,](/lectures/lecture27-public.pdf) [sockets.zip](/lectures/sockets.zip)                                           | CSAPP 11.4           | A4 due     |
+|                  | [Network applications, HTTP,](/lectures/lecture28-public.pdf) [webclient.zip,](/lectures/webclient.zip) [webserver.zip](/lectures/webserver.zip) | CSAPP 11.4-11.6      |
+| 16 July          | [Concurrency with pthreads,](/lectures/lecture29-public.pdf) [mt_webserver.zip](/lectures/mt_webserver.zip)                                      | CSAPP 12.3           |            |
+|                  | [Thread synchronization,](/lectures/lecture30-public.pdf) [synch.zip](/lectures/synch.zip)                                                       | CSAPP 12.4-12.5      |            |
+| 17 July          | [Parallelism, concurrency issues,](/lectures/lecture31-public.pdf) [synch2.zip](/lectures/synch2.zip)                                            | CSAPP 12.6-12.7      | A5 MS1 due |
+|                  | [Concurrency with processes,](/lectures/lecture32-public.pdf) [mp_webserver.zip](/lectures/mp_webserver.zip)                                     | CSAPP 12.1           |            |
+| <hr/>            | <hr/>                                                                                                                                            | <hr/>                | <hr/>      |
+| 21 July          | [Concurrency with I/O multiplexing,](/lectures/lecture33-public.pdf) [iomux.zip](/lectures/iomux.zip)                                            | CSAPP 12.2           |            |
+| 23 July          | Exam 3 review session                                                                                                                            |                      | A5 MS2 due |
+|                  | Guest lecture: Ian Cook, cybersecurity                                                                                                           |                      |            |
+| 24 July          | Catch-up day                                                                                                                                     |                      | Exam 3 due |
+| <hr/>            | <hr/>                                                                                                                                            | <hr/>                | <hr/>      |
+| 4 Sep            | Closing Social. Pizza and soft drinks provided.                                                                                                  |                      |            |
 
 <p class="footnote">Because all work must be received by 24 July, a maximum of 24 late hours can be used for A5 MS2.</p>
