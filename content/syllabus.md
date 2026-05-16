@@ -38,14 +38,9 @@ Any updates will be mentioned in class and on Slack.
 
 <ul>
 <li>
-<p>TBD</p>
+<p>Gavi Kigner</p>
 <p><em>Head Course Assistant</em><p>
-<p><a href="mailto:noreply@jh.edu">noreply@jhu.edu</a></p>
-</li>
-<li>
-<p>TBD</p>
-<p><em>Course Assistant</em><p>
-<p><a href="mailto:noreply@jh.edu">noreply@jhu.edu</a></p>
+<p><a href="gkigner1@jh.edu">gkigner1@jh.edu</a></p>
 </li>
 </ul>
 </div>
