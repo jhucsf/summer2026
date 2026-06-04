@@ -41,7 +41,7 @@ Readings are from:
 |                  | [Exceptions, Processes](/lectures/lecture20-public.pdf)                                                                                          | CSAPP 8.1-8.4, 8.7   |            |
 | 2 July           | [Signals,](/lectures/lecture21-public.pdf) [signals.zip](/lectures/signals.zip)                                                                  | CSAPP 8.5-8.6        |            |
 |                  | [Virtual memory](/lectures/lecture22-public.pdf)                                                                                                 | CSAPP 9.1-9.3        |            |
-| *4 July*         | *Independence Day -- university holiday -- no class*                                                                                             |                      | A3 MS3 due |
+| *3 July*         | *Independence Day -- university holiday -- no class*                                                                                             |                      | A3 MS3 due |
 | <hr/>            | <hr/>                                                                                                                                            | <hr/>                | <hr/>      |
 | 7 July           | [Memory management, address translation](/lectures/lecture23-public.pdf)                                                                         | CSAPP 9.4-9.7        |            |
 |                  | [Memory mapping, dynamic memory allocation](/lectures/lecture24-public.pdf)                                                                      | CSAPP 9.8, 9.9, 9.11 |            |
