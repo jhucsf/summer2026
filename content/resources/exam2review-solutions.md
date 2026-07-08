@@ -251,7 +251,7 @@ to indicate that the value in the slot is identical to the previous value.
 *Answer*:
 
 <div style="margin-left: 2em;">
-  <img src="C4_table-completed.svg" style="width: 40em;" alt="completed table">
+  <img src="/resources/img/C4_table-completed.svg" style="width: 40em;" alt="completed table">
 </div>
 
 ## C: Linking, shared libraries
