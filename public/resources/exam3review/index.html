@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/summer2026/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=summer2026/livereload" data-no-instant defer></script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>
+    
+      Exam 3 practice questions &middot; EN.601.229: Computer System Fundamentals
+    
+  </title>
+
+  
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="http://localhost:1313/summer2026/sass/style.css">
+</head><body>
+
+    <div class="container content">
+      <header class="masthead">
+        <a href="https://www.jhu.edu">
+          <picture class="jhu-shield">
+            <source srcset="../../img/university.shield.white.svg" media="(prefers-color-scheme:dark)"/>
+            <img class="jhu-shield" src="../../img/university.shield.black.svg"/>
+          </picture>
+        </a>
+        <h1 class="masthead-title">
+          EN.601.229: Computer System Fundamentals
+        </h1>
+        <ul class="masthead-nav">
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../syllabus">Syllabus</a></li>
+          <li><a href="../../schedule">Schedule</a></li>
+          <li><a href="../../assignments">Assignments</a></li>
+          <li><a href="../../resources">Resources</a></li>
+        </ul>
+      </header>
+
+      <main>
+  <article class="page">
+    <h1 class="page-title">Exam 3 practice questions</h1>
+    <h2 id="a-unix-io">A. Unix I/O</h2>
+<p><strong>A1)</strong> Consider the following server main loop:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">server_fd</span> <span class="o">=</span> <span class="nf">Open_listenfd</span><span class="p">(</span><span class="n">port</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">client_fd</span> <span class="o">=</span> <span class="nf">Accept</span><span class="p">(</span><span class="n">server_fd</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">pid</span> <span class="o">=</span> <span class="nf">Fork</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// in child
+</span></span></span><span class="line"><span class="cl">    <span class="nf">chat_with_client</span><span class="p">(</span><span class="n">client_fd</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Assume that</p>
+<ul>
+<li><code>Open_listenfd</code>, <code>Accept</code>, and <code>Fork</code> are functions from <code>csapp.h</code> and <code>csapp.c</code></li>
+<li>the <code>chat_with_client</code> function correctly handles all details of communicating with the remote client, including closing the client socket file descriptor</li>
+<li>the main server process has a handler for <code>SIGCHLD</code> to wait for child processes to exit</li>
+<li>the server intentionally does not place any limit on how many client sub-processes can be running</li>
+<li>the server intentionally does not have any mechanism for handling shutdown requests</li>
+</ul>
+<p>Describe a bug in this main loop, and how to fix it.</p>
+<h2 id="b-network-communication">B. Network communication</h2>
+<p><strong>B1)</strong> Complete the following function, called <code>chat_with_client</code>.  It should implement the server side of a network protocol in which the client will repeatedly send lines of text, and for each line of text that is not <code>quit</code>, the server will send back the reversal of the line sent by the client.  When the client sends the line <code>quit</code>, then the client session has ended, and the connection should be closed by the server.</p>
+<p>For example, if the client sends</p>
+<pre tabindex="0"><code>Hello, world
+Colorless green sheep sleep furiously
+A smell of petroleum prevails throughout
+quit
+</code></pre><p>then the server should send back</p>
+<pre tabindex="0"><code>dlrow ,olleH
+ylsuoiruf peels peehs neerg sselroloC
+tuohguorht sliaverp muelortep fo llems A
+</code></pre><p>You may implement and call helper functions as necessary.  You may use the functions defined in <code>csapp.h</code> and <code>csapp.c</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">chat_with_client</span><span class="p">(</span><span class="kt">int</span> <span class="n">client_fd</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// TODO: complete this function
+</span></span></span></code></pre></div><h2 id="c-concurrency">C. Concurrency</h2>
+<p><strong>C1)</strong> Consider the following <code>IntStack</code> data type.</p>
+<p>The header file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// intstack.h
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#ifndef INTSTACK_H
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define INTSTACK_H
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#define MAX 256
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">IntStack</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">contents</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">top</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">intstack_init</span><span class="p">(</span><span class="k">struct</span> <span class="n">IntStack</span> <span class="o">*</span><span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">intstack_push</span><span class="p">(</span><span class="k">struct</span> <span class="n">IntStack</span> <span class="o">*</span><span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">intstack_pop</span><span class="p">(</span><span class="k">struct</span> <span class="n">IntStack</span> <span class="o">*</span><span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#endif </span><span class="c1">// INTSTACK_H
+</span></span></span></code></pre></div><p>The implementation file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// intstack.c
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">intstack_init</span><span class="p">(</span><span class="k">struct</span> <span class="n">IntStack</span> <span class="o">*</span><span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">s</span><span class="o">-&gt;</span><span class="n">top</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">intstack_push</span><span class="p">(</span><span class="k">struct</span> <span class="n">IntStack</span> <span class="o">*</span><span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">assert</span><span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">top</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">s</span><span class="o">-&gt;</span><span class="n">contents</span><span class="p">[</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">top</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">s</span><span class="o">-&gt;</span><span class="n">top</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">intstack_pop</span><span class="p">(</span><span class="k">struct</span> <span class="n">IntStack</span> <span class="o">*</span><span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">assert</span><span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">top</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">s</span><span class="o">-&gt;</span><span class="n">top</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">s</span><span class="o">-&gt;</span><span class="n">contents</span><span class="p">[</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">top</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Modify the <code>IntStack</code> data type so that it can be safely used by multiple threads.</p>
+<p>When the <code>intstack_push</code> function is called, and the stack is full, the function
+should wait until the stack is not full, and then push the specified value.</p>
+<p>When the <code>intstack_pop</code> function is called, and the stack is empty, the function
+should wait until the stack is not empty, and then pop the top value.</p>
+
+  </article>
+
+      </main><footer class="footer">
+  <small>
+    
+    <p>&copy; Johns Hopkins University. All rights reserved.</p><p class="metadata">Site last updated 8 Jul 2026.</p>
+    
+  </small>
+</footer>
+</div>
+  </body>
+</html>

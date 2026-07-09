@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Assignments on EN.601.229: Computer System Fundamentals</title>
+    <link>http://localhost:1313/summer2026/assignments/</link>
+    <description>Recent content in Assignments on EN.601.229: Computer System Fundamentals</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/summer2026/assignments/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Assignment 1: Big Integers</title>
+      <link>http://localhost:1313/summer2026/assignments/assign01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/summer2026/assignments/assign01/</guid>
+      <description>&lt;p&gt;Assignment type: &lt;strong&gt;Pair&lt;/strong&gt;, you may work with one partner.&lt;/p&gt;&#xA;&lt;h1 id=&#34;overview&#34;&gt;Overview&lt;/h1&gt;&#xA;&lt;p&gt;In this assignment, you will implement a &lt;code&gt;BigInt&lt;/code&gt; C++ data type which&#xA;allows arbitrary-precision integer arithmetic.&lt;/p&gt;&#xA;&lt;h2 id=&#34;milestones-grading-criteria&#34;&gt;Milestones, grading criteria&lt;/h2&gt;&#xA;&lt;p&gt;Milestone 1 (15% of the assignment grade):&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Implementation of functions (15%)&#xA;&lt;ul&gt;&#xA;&lt;li&gt;constructors&lt;/li&gt;&#xA;&lt;li&gt;destructor&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;get_bit_vector()&lt;/code&gt; member function&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;git_bits(unsigned)&lt;/code&gt; member function&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;is_negative()&lt;/code&gt; member function&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;operator-()&lt;/code&gt; member function (unary minus)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;to_hex()&lt;/code&gt; member function (conversion to base-16)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;important&#34;&gt;Important!&lt;/h3&gt;&#xA;&lt;p&gt;Milestone 1 is intended as a warm-up, since you might not have&#xA;written C++ code in a while. For that reason, it is a very&#xA;lightweight milestone. Milestone 2 will require significantly&#xA;more work.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Assignment 2: Pixel Graphics</title>
+      <link>http://localhost:1313/summer2026/assignments/assign02/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/summer2026/assignments/assign02/</guid>
+      <description>&lt;p&gt;Assignment type: &lt;strong&gt;Pair&lt;/strong&gt;, you may work with one partner.&lt;/p&gt;&#xA;&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;In this assignment, you will implement functions which perform drawing&#xA;operations into an in-memory image representation, in both C and x86-64 assembly&#xA;language.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt;: Assembly language programming is challenging! Make sure&#xA;you start each milestone as soon as possible, work steadily, and&#xA;ask questions early.  Also, writing unit tests and using &lt;code&gt;gdb&lt;/code&gt; to&#xA;examine the detailed behavior of code under test will be critical&#xA;to successful implementation of the assembly language functions.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Assignment 3: Cache simulator</title>
+      <link>http://localhost:1313/summer2026/assignments/assign03/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/summer2026/assignments/assign03/</guid>
+      <description>&lt;p&gt;Assignment type: &lt;strong&gt;Pair&lt;/strong&gt;, you may work with one partner.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Late hour usage&lt;/strong&gt;: If you anticipate using more than 48 late hours&#xA;on Milestone 3, please post privately (to instructors and CAs) on Slack&#xA;to request permission. Note that late hours may &lt;em&gt;not&lt;/em&gt; be used on&#xA;Milestone 1, and at most 48 late hours may be used on Milestone 2.&lt;/p&gt;&#xA;&lt;h1 id=&#34;cache-simulator&#34;&gt;Cache simulator&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Acknowledgment&lt;/strong&gt;: This assignment was originally developed by&#xA;&lt;a href=&#34;https://www.cs.jhu.edu/~phf&#34;&gt;Peter Fröhlich&lt;/a&gt; for &lt;a href=&#34;https://www.cs.jhu.edu/~phf/2018/fall/cs229&#34;&gt;his version of&#xA;CSF&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Assignment 4: Parallel Merge Sort</title>
+      <link>http://localhost:1313/summer2026/assignments/assign04/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/summer2026/assignments/assign04/</guid>
+      <description>&lt;p&gt;Assignment type: &lt;strong&gt;Pair&lt;/strong&gt;, you may work with one partner.&lt;/p&gt;&#xA;&lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;&#xA;&lt;p&gt;Download &lt;a href=&#34;../assign/csf_assign04.zip&#34;&gt;csf_assign04.zip&lt;/a&gt; and unzip it.&lt;/p&gt;&#xA;&lt;p&gt;You will modify the code in the &lt;code&gt;parsort.c&lt;/code&gt; source file. You can compile&#xA;the program using the provided &lt;code&gt;Makefile&lt;/code&gt;.  To run the program,&#xA;the invocation is&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;./parsort filename threshold&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;where &lt;em&gt;filename&lt;/em&gt; is the file containing the data to sort, and &lt;em&gt;threshold&lt;/em&gt;&#xA;is the number of elements below (inclusive) which the program should use a&#xA;sequential sort.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Assignment 5: Key/Value Store</title>
+      <link>http://localhost:1313/summer2026/assignments/assign05/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/summer2026/assignments/assign05/</guid>
+      <description>&lt;p&gt;Assignment type: &lt;strong&gt;Pair&lt;/strong&gt;, you may work with one partner.&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: Assignment 5 is a double assignment. Each milestone (MS1 and MS2)&#xA;is worth 1/6 of the assignments grade for the course, the same as&#xA;(individually) Assignments 1–4.&lt;/p&gt;&#xA;&lt;p&gt;This is a very substantial two-part assignment! While it doesn&amp;rsquo;t involve&#xA;writing huge amounts of code, you will need to think carefully&#xA;about what you are doing. We &lt;strong&gt;strongly&lt;/strong&gt; recommend that you&#xA;get started early, ask questions early, and leave plenty of&#xA;time for testing and debugging.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
